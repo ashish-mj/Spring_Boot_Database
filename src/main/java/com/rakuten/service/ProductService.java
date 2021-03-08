@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,11 @@ public Product searchByProductId(int pid) {
 
 public List<Product> searchByName(String n){
 	return productRepository.findByProductName(n);
+}
+
+@Transactional
+public int updateReview(int rid,String msg) {
+	return productRepository.updateReview(rid, msg);
 }
 
 }

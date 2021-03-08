@@ -66,16 +66,16 @@ public ResponseEntity<ProductEntity> searchByProductName(@PathVariable String na
 
 @RequestMapping("/id/{pid}/reviews")
 public List<Review> getReviewsForProduct(@PathVariable int pid) {
-	List<Product> list=service.getProducts();
-	Product product=list.stream().filter(p->p.getProductId()==pid).findFirst().get();
-	return product.getReviewList();
+	//This work assigned to Batch Rakuten Software developers
+	return null;
 }
 @RequestMapping("/id/{pid}/reviews/review/{rid}")
 public Review getReviewsById(@PathVariable int pid, @PathVariable("rid") int reviewId) {
-	List<Product> list=service.getProducts();
-	Product product=list.stream().filter(p->p.getProductId()==pid).findFirst().get();
-	List<Review> reviews= product.getReviewList();
-	Review review=reviews.stream().filter(r->r.getRevId()==reviewId).findFirst().get();
-	return review;
+	//This work assigned to Batch Rakuten Software developers
+	return null;
+}
+@RequestMapping(value = "/reviews/id/{rid}/msg/{reviewMsg}", method = RequestMethod.PUT)
+public int updateReview(@PathVariable int rid,@PathVariable("reviewMsg") String msg) {
+	return service.updateReview(rid, msg);
 }
 }
