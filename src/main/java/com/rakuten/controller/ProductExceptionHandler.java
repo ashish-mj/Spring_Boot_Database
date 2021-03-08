@@ -1,6 +1,10 @@
 package com.rakuten.controller;
 
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.rakuten.domain.APIError;
+import com.rakuten.exceptions.ProductNotFoundException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rakuten.domain.Product;
+import com.rakuten.domain.ProductEntity;
+import com.rakuten.domain.Review;
+import com.rakuten.exceptions.ProductNotFoundException;
+import com.rakuten.service.ProductService;
+
 @RestController
 @RequestMapping("/product")
 public class ProductController {

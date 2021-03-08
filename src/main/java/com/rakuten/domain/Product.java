@@ -2,19 +2,27 @@ package com.rakuten.domain;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.*;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
 public class Product {
+@Id
 private int productId;
 private String productName;
 private float price;
+
+@OneToMany(mappedBy="product", cascade = CascadeType.ALL)
 private List<Review> reviewList;
 
-Product(){
+public Product(){
 }
 
-Product(int id,String name,float price, List<Review> list){
+public Product(int id,String name,float price, List<Review> list){
 	this.productId=id;
 	this.productName=name;
 	this.price=price;
