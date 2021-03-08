@@ -33,4 +33,8 @@ public Product searchByProductId(int pid) {
 	throw new ProductNotFoundException("The product id "+pid+" u r searching is not avilable");
 }
 
+public List<Product> searchByName(String n){
+	return productRepository.findByProductName(n);
+}
+
 }

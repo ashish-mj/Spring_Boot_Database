@@ -55,6 +55,15 @@ public Product addProduct(@RequestBody Product p){
 	
 }
 
+@RequestMapping(value="name/{name}",produces = {"application/xml","application/json"})
+public ResponseEntity<ProductEntity> searchByProductName(@PathVariable String name){
+	ProductEntity pe=new ProductEntity();
+	
+	pe.setList(service.searchByName(name));
+	ResponseEntity<ProductEntity> re=new ResponseEntity<ProductEntity>(pe, HttpStatus.OK);
+	return re;
+}
+
 @RequestMapping("/id/{pid}/reviews")
 public List<Review> getReviewsForProduct(@PathVariable int pid) {
 	List<Product> list=service.getProducts();
