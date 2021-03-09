@@ -67,7 +67,7 @@ public ResponseEntity<ProductEntity> searchByProductName(@PathVariable String na
 @RequestMapping("/id/{pid}/reviews")
 public List<Review> getReviewsForProduct(@PathVariable int pid) {
 	//This work assigned to Batch Rakuten Software developers
-	return null;
+	return service.getReviews(pid);
 }
 @RequestMapping("/id/{pid}/reviews/review/{rid}")
 public Review getReviewsById(@PathVariable int pid, @PathVariable("rid") int reviewId) {

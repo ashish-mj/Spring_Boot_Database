@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rakuten.domain.Product;
+import com.rakuten.domain.Review;
 import com.rakuten.exceptions.ProductNotFoundException;
 import com.rakuten.respository.ProductRepository;
 
@@ -42,6 +43,11 @@ public List<Product> searchByName(String n){
 @Transactional
 public int updateReview(int rid,String msg) {
 	return productRepository.updateReview(rid, msg);
+}
+
+public List<Review> getReviews(int id){
+	Product p= productRepository.findById(id).get();
+	return p.getReviewList();
 }
 
 }
